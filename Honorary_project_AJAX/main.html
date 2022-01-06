@@ -1,0 +1,115 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="Main">
+            <h1>AJAX Project: Personal Web Page</h1>
+            <h2>Hello, I'm Gaon Choi.</h2>
+            <h3>Press the buttons below to view details.</h3>
+        </div>
+        <form>
+            <input onclick="get_contactinfo();" type="button" value="Contact Info" />
+            <input onclick="get_eduinfo();" type="button" value="Education" />
+            <input onclick="get_skillinfo();" type="button" value="Skills" />
+            <input onclick="get_activityinfo();" type="button" value="Activities" />
+            <input onclick="get_awardinfo();" type="button" value="Awards" />
+            <input onclick="get_presentationinfo();" type="button" value="Presentations" />
+            <input onclick="get_imageinfo();" type="button" value="Gallery" />
+            <input onclick="hidecontent();" type="button" value="HIDE CONTENTS" style="background-color:skyblue" />
+        </form>
+
+        <div id="content">blank</div>
+
+
+        <script type="text/javascript">
+            async function get_contactinfo() {
+                var request = new XMLHttpRequest();
+                await request.open("GET", "./src/contact.html", true);
+                await request.send();
+
+                request.onload = function () {
+                    console.log('!!', request.responseText);
+                    console.log('!!', document.getElementById("content").innerHTML);
+                    document.getElementById("content").innerHTML = request.responseText;
+                }
+            }
+
+            async function get_eduinfo() {
+                var request = new XMLHttpRequest();
+                await request.open("GET", "./src/education.html", true);
+                await request.send();
+
+                request.onload = function() {
+                    console.log('!!', request.responseText);
+                    console.log('!!', document.getElementById("content").innerHTML);
+                    document.getElementById("content").innerHTML = request.responseText;
+                }
+            }
+
+            async function get_skillinfo() {
+                var request = new XMLHttpRequest();
+                await request.open("GET", "./src/skills.html", true);
+                await request.send();
+
+                request.onload = function() {
+                    console.log('!!', request.responseText);
+                    console.log('!!', document.getElementById("content").innerHTML);
+                    document.getElementById("content").innerHTML = request.responseText;
+                }
+            }
+
+            async function get_activityinfo() {
+                var request = new XMLHttpRequest();
+                await request.open("GET", "./src/activities.html", true);
+                await request.send();
+
+                request.onload = function() {
+                    console.log('!!', request.responseText);
+                    console.log('!!', document.getElementById("content").innerHTML);
+                    document.getElementById("content").innerHTML = request.responseText;
+                }
+            }
+
+            async function get_awardinfo() {
+                var request = new XMLHttpRequest();
+                await request.open("GET", "./src/award.html", true);
+                await request.send();
+
+                request.onload = function() {
+                    console.log('!!', request.responseText);
+                    console.log('!!', document.getElementById("content").innerHTML);
+                    document.getElementById("content").innerHTML = request.responseText;
+                }
+            }
+
+            async function get_presentationinfo() {
+                var request = new XMLHttpRequest();
+                await request.open("GET", "./src/presentation.html", true);
+                await request.send();
+
+                request.onload = function() {
+                    console.log('!!', request.responseText);
+                    console.log('!!', document.getElementById("content").innerHTML);
+                    document.getElementById("content").innerHTML = request.responseText;
+                }
+            }
+
+            async function get_imageinfo() {
+                var image = new Image();
+                var div = document.getElementById("content");
+                div.innerHTML="";
+                image.onload = function(){
+                    div.appendChild(image);
+                };
+                image.src = "./src/image.png";
+                image.height="400";
+            }
+
+            function hidecontent() {
+                var element = document.getElementById("content");
+                element.innerHTML = "";
+            }
+        </script>
+    </body>
+</html>
